@@ -1,0 +1,204 @@
+Aubameyang Arsenal 205 $12.0 
+Shelvey Newcastle 105 $5.5
+Mané Liverpool 221 $12.0 
+Atsu Newcastle 37 $5.5
+Salah Liverpool 233 $12.0 
+Saint-Maximin Newcastle 92 $5.5
+De Bruyne Man City 251 $11.5 
+Lundstram Sheffield Utd 144 $5.5
+Sterling Man City 204 $11.5 
+Armstrong Southampton 98 $5.5
+Fernandes Man Utd 117 $10.5 
+Boufal Southampton 34 $5.5
+Rashford Man Utd 177 $9.5 
+Djenepo Southampton 40 $5.5
+Son Spurs 169 $9.0 Winks Spurs 52 $5.5
+Pulisic Chelsea 127 $8.5 
+Grosicki West Brom 0 $5.5
+Mahrez Man City 175 $8.5 
+Phillips West Brom 0 $5.5
+Pépé Arsenal 106 $8.0 
+Diangana West Ham 0 $5.5
+Ziyech Chelsea 0 $8.0 
+Moutinho Wolves 113 $5.5
+Pogba Man Utd 51 $8.0 
+Neves Wolves 97 $5.5
+Alli Spurs 117 $8.0 
+Podence Wolves 25 $5.5
+Willian Arsenal 168 $8.0 
+Neto Wolves 57 $5.5
+Bernardo Silva Man City 116 $7.5 
+Torreira Arsenal 46 $5.0
+Greenwood Man Utd 103 $7.5 
+Willock Arsenal 41 $5.0
+Bergwijn Spurs 43 $7.5 
+Guendouzi Arsenal 48 $5.0
+Özil Arsenal 53 $7.0 
+Martinelli Arsenal 39 $5.0
+Grealish Aston Villa 149 $7.0 
+Douglas Luiz Aston Villa 90 $5.0
+Mount Chelsea 137 $7.0 
+Pröpper Brighton 78 $5.0
+Zaha Crystal Palace 120 $7.0 
+Mooy Brighton 80 $5.0
+Sigurdsson Everton 95 $7.0 
+March Brighton 38 $5.0
+Maddison Leicester 125 $7.0 
+Cork Burnley 70 $5.0
+Barnes Leicester 133 $7.0 
+Brady Burnley 32 $5.0
+Torres Man City 0 $7.0 
+Brownhill Burnley 21 $5.0
+Lucas Moura Spurs 100 $7.0 
+Jorginho Chelsea 92 $5.0
+Lo Celso Spurs 54 $7.0 
+Kanté Chelsea 57 $5.0
+van de Beek Man Utd 0 $7.0 
+Kouyaté Crystal Palace 85 $5.0
+Lallana Brighton 27 $6.5 
+Meyer Crystal Palace 23 $5.0
+Tielemans Leicester 117 $6.5 
+Delph Everton 24 $5.0
+Pérez Leicester 129 $6.5 
+Gbamin Everton 4 $5.0
+Shaqiri Liverpool 15 $6.5 
+McDonald Fulham 0 $5.0
+Chamberlain Liverpool 76 $6.5 
+Johansen Fulham 0 $5.0
+Minamino Liverpool 11 $6.5 
+Kebano Fulham 0 $5.0
+Foden Man City 69 $6.5 
+Onomah Fulham 0 $5.0
+James Man Utd 95 $6.5 
+Seri Fulham 0 $5.0
+Redmond Southampton 107 $6.5 
+Kamara Fulham 0 $5.0
+Lanzini West Ham 50 $6.5 
+Forshaw Leeds 0 $5.0
+Felipe Anderson West Ham 66 $6.5 
+Phillips Leeds 0 $5.0
+Bowen West Ham 44 $6.5 
+Roberts Leeds 0 $5.0
+Fornals West Ham 93 $6.5 
+Grot Leeds 0 $5.0
+Traoré Wolves 130 $6.5 
+Shackleton Leeds 0 $5.0
+Jota Wolves 105 $6.5 
+Choudhury Leicester 35 $5.0
+Hourihane Aston Villa 83 $6.0 
+Ndidi Leicester 85 $5.0
+Jota Aston Villa 17 $6.0 
+Matic Man Utd 55 $5.0
+El Ghazi Aston Villa 93 $6.0 
+Pereira Man Utd 60 $5.0
+Groß Brighton 76 $6.0 
+McTominay Man Utd 74 $5.0
+Trossard Brighton 104 $6.0 
+Ritchie Newcastle 74 $5.0
+McNeil Burnley 123 $6.0 
+Hayden Newcastle 73 $5.0
+Barkley Chelsea 61 $6.0 
+Aarons Newcastle 0 $5.0
+Loftus-Cheek Chelsea 12 $6.0 
+Norwood Sheffield Utd 98 $5.0
+Hudson-Odoi Chelsea 53 $6.0 
+Osborn Sheffield Utd 19 $5.0
+Townsend Crystal Palace 48 $6.0 
+Berge Sheffield Utd 40 $5.0
+Milivojevic Crystal Palace 81 $6.0 
+Sissoko Spurs 69 $5.0
+Walcott Everton 63 $6.0 
+Højbjerg Spurs 75 $5.0
+Bernard Everton 72 $6.0 
+Fernandes Spurs 7 $5.0
+Iwobi Everton 52 $6.0 
+Livermore West Brom 0 $5.0
+Hernández Leeds 0 $6.0 
+Sawyers West Brom 0 $5.0
+Mata Man Utd 38 $6.0 
+Edwards West Brom 0 $5.0
+Lingard Man Utd 32 $6.0 
+Field West Brom 0 $5.0
+Almirón Newcastle 109 $6.0 
+Noble West Ham 105 $5.0
+Fleck Sheffield Utd 101 $6.0 
+Wilshere West Ham 8 $5.0
+Ward-Prowse Southampton 117 $6.0 
+Rice West Ham 105 $5.0
+Lamela Spurs 65 $6.0 
+Soucek West Ham 41 $5.0
+Ndombele Spurs 45 $6.0 
+Dendoncker Wolves 100 $5.0
+Snodgrass West Ham 87 $6.0 
+Gibbs-White Wolves 11 $5.0
+Yarmolenko West Ham 70 $6.0 
+Freeman Sheffield Utd 13 $5.0
+Pereira West Brom 0 $6.0 
+Sean Longstaff Newcastle 44 $5.0
+Eze Crystal Palace 0 $6.0 
+Hendrick Newcastle 67 $5.0
+Xhaka Arsenal 73 $5.5 
+Matty Longstaff Newcastle 27 $5.0
+Nelson Arsenal 30 $5.5 
+Smith Rowe Arsenal 4 $4.5
+Saka Arsenal 71 $5.5 
+Lansbury Aston Villa 12 $4.5
+McGinn Aston Villa 84 $5.5 
+Nakamba Aston Villa 43 $4.5
+Trézéguet Aston Villa 98 $5.5 
+Stephens Brighton 63 $4.5
+Jahanbakhsh Brighton 28 $5.5 
+Bissouma Brighton 39 $4.5
+Izquierdo Brighton 0 $5.5 
+Alzate Brighton 33 $4.5
+Mac Allister Brighton 12 $5.5 
+Gilmour Chelsea 9 $4.5
+Westwood Burnley 118 $5.5 
+McCarthy Crystal Palace 41 $4.5
+Gudmundsson Burnley 30 $5.5 
+Riedewald Crystal Palace 22 $4.5
+Kovacic Chelsea 68 $5.5 
+Pierrick Crystal Palace 2 $4.5
+McArthur Crystal Palace 92 $5.5 
+Gordon Everton 17 $4.5
+Schlupp Crystal Palace 51 $5.5 
+Anguissa Fulham 0 $4.5
+André Gomes Everton 39 $5.5 
+Poveda-Ocampo Leeds 0 $4.5
+Davies Everton 59 $5.5 
+Stevens Leeds 0 $4.5
+Cairney Fulham 0 $5.5 
+Silva Leicester 0 $4.5
+Knockaert Fulham 0 $5.5 
+James Leicester 1 $4.5
+Cavaleiro Fulham 0 $5.5 
+Jones Liverpool 13 $4.5
+Klich Leeds 0 $5.5 
+Elliott Liverpool 2 $4.5
+Harrison Leeds 0 $5.5 
+Doyle Man City 1 $4.5
+Costa Leeds 0 $5.5 
+Chong Man Utd 3 $4.5
+Albrighton Leicester 38 $5.5 
+Garner Man Utd 1 $4.5
+Praet Leicester 54 $5.5 
+Oriol Romeu Southampton 51 $4.5
+Gray Leicester 44 $5.5 
+Reed Fulham 0 $4.5
+Milner Liverpool 49 $5.5 
+Sims Southampton 0 $4.5
+Wijnaldum Liverpool 107 $5.5 
+Smallbone Southampton 24 $4.5
+Henderson Liverpool 116 $5.5 
+Skipp Spurs 7 $4.5
+Fabinho Liverpool 77 $5.5 
+Leko West Brom 0 $4.5
+Harry Wilson Liverpool 91 $5.5 
+Burke West Brom 0 $4.5
+Keita Liverpool 52 $5.5 
+Harper West Brom 0 $4.5
+Gündogan Man City 65 $5.5 
+Jordao Wolves 1 $4.5
+Rodrigo Man City 92 $5.5 
+Lemina Fulham 0 $4.5
+Fred Man Utd 50 $5.5

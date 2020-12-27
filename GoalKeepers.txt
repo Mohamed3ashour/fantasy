@@ -1,0 +1,50 @@
+Alisson Liverpool 122 $6.0
+Rodák Fulham 0 $4.5
+Ederson Man City 133 $6.0 
+Casilla Leeds 0 $4.5
+Pope Burnley 170 $5.5 
+Meslier Leeds 0 $4.5
+Schmeichel Leicester 156 $5.5 
+Ward Leicester 0 $4.5
+de Gea Man Utd 143 $5.5 
+Adrián Liverpool 27 $4.5
+Henderson Man Utd 160 $5.5 
+Bravo Man City 11 $4.5
+Lloris Spurs 98 $5.5 
+Moore Sheffield Utd 3 $4.5
+Patrício Wolves 153 $5.5 
+Foderingham Sheffield Utd 0 $4.5
+Leno Arsenal 114 $5.0 
+McCarthy Southampton 104 $4.5
+Caballero Chelsea 13 $5.0 
+Gunn Southampton 29 $4.5
+Arrizabalaga Chelsea 90 $5.0 
+Gazzaniga Spurs 58 $4.5
+Guaita Crystal Palace 137 $5.0 
+Johnstone West Brom 0 $4.5
+Pickford Everton 117 $5.0 
+Randolph West Ham 3 $4.5
+Romero Man Utd 0 $5.0 
+Roberto West Ham 18 $4.5
+Darlow Newcastle 0 $5.0 
+Ruddy Wolves 0 $4.5
+Dubravka Newcastle 143 $5.0 
+Sarkic Wolves 0 $4.5
+Fabianski West Ham 83 $5.0 
+Hart Spurs 0 $4.5
+Ramsdale Sheffield Utd 126 $5.0 
+Gillespie Newcastle 0 $4.5
+Martínez Arsenal 33 $4.5 
+Steer Aston Villa 1 $4.0
+Heaton Aston Villa 59 $4.5 
+Nyland Aston Villa 15 $4.0
+Ryan Brighton 135 $4.5 
+Button Brighton 0 $4.0
+Hennessey Crystal Palace 7 $4.5 
+Peacock-Farrell Burnley 0 $4.0
+Lössl Everton 0 $4.5 
+Fabri Fulham 0 $4.0
+Virgínia Everton 0 $4.5 
+Miazek Leeds 0 $4.0
+Bettinelli Fulham 0 $4.5
+Martin West Ham 20 $4.0
