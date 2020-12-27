@@ -1,0 +1,4 @@
+UID1	|	Hassan Mahmoud	|	Liverpool	|	hmahmoud252000@gmail.com	|	hassan251passwd
+UID2	|	Omar Mohamed	|	Chelsea	|	Omar.mohamed2021@gmail.com	|	omar15987passwd
+UID3	|	Mohamed Ashour	|	Everton	|	mohamed.Ashour.20254@gmail.com	|	Ashour657passwd
+UID4	|	Ahmed Ali	|	Leeds United	|	ahmed.ali16987@gmail.com	|	a.ali1498passwd
