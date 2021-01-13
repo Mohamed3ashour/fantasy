@@ -2,11 +2,12 @@ package fpackage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class registeration {
 	
-	public static boolean Login() throws FileNotFoundException
+	public static boolean Login() throws FileNotFoundException, SQLException
 	{	
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter your email: ");
@@ -26,7 +27,7 @@ public class registeration {
 		}
 	}
 	
-	public static boolean SignUP() throws IOException
+	public static boolean SignUP() throws IOException, SQLException
 	{
 		User temp = new User();
 		
@@ -58,4 +59,3 @@ public class registeration {
 		}
 	}	
 }
-

@@ -3,6 +3,7 @@ package fpackage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
+import java.sql.*;
 
 public class User extends person {
 	
@@ -13,8 +14,6 @@ public class User extends person {
 	private String favTeam;
 	private String ID;
 	private double budget;
-	private Squad newSquad = new Squad();
-	
 	
 	public User() {
 		super();
@@ -22,7 +21,6 @@ public class User extends person {
 		passwd="";
 		favTeam = "";
 		setBudget(100.0);
-		setID();
 	}
 	
 	public User(String name, int age, String email, String passwd , String favTeam) {
@@ -31,26 +29,6 @@ public class User extends person {
 		this.passwd = passwd;
 		this.favTeam = favTeam;
 		setBudget(100.0);
-		setID();
-	}
-	
-	public void printSquadPlayers() throws FileNotFoundException
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter your ID : ");
-		String UserID = scan.nextLine();
-		DataManipulation.printUserSquad(UserID);
-		scan.close();
-	}
-
-	public double NewBudget() throws FileNotFoundException
-	{
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter your ID : ");
-		String ID = scan.nextLine();
-		setBudget(getBudget() - DataManipulation.calcCost(ID));
-		scan.close();
-		return getBudget();
 	}
 	
 	public Player CreatePlayer()
@@ -74,108 +52,426 @@ public class User extends person {
 		System.out.println();
 		return newPlayer;
 	}
-	
-	public void AddSquad() throws IOException
+
+	public void Add_Midfielder_To_Squad() throws SQLException
 	{
-		String Name;
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		int ID = 0 ; String Name = "";
+		
 		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Enter your ID : ");
-		String ID = sc.nextLine();
-		if(!DataManipulation.checkID(ID))
+		ID = sc.nextInt();
+		
+		System.out.println("Enter name for midfielder player");
+		Name = scan.nextLine();
+		
+		if(DataManipulation.search_midfielders(Name))
 		{
-			DataManipulation.AddUserID(ID);
-			System.out.println("Defenders");
-			for(int i = 0; i<5 ;i++)
-			{
-				System.out.println("Enter name for defender player #"+(i+1));
-				Name = sc.nextLine();
-				if(DataManipulation.search(Name, DataManipulation.DefendersFILE_PATH))
-					System.out.println("Player record has been added");
-				else
-				{
-					System.out.println("Player name does not exist!");
-					System.out.println("Try again");
-					--i;
-				}
+			
+			String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM midfielders WHERE Player_name='"+Name+"'";
+			
+			ResultSet res = stmt.executeQuery(sql);
+			
+			String name="" , team="" , position="";
+			int points = 0;
+			double cost = 0.0;
+			
+			while(res.next())
+			{				
+				name = res.getString("Player_name");
+				team = res.getString("Team");
+				points = res.getInt("Total_points");
+				cost = res.getDouble("Cost");
+				position = res.getString("Position");
 			}
 			
-			System.out.println("Midfielders");
-			for(int i = 0; i<5 ;i++)
-			{
-				System.out.println("Enter name for midfielder player #"+(i+1));
-				Name = sc.nextLine();
-				if(DataManipulation.search(Name, DataManipulation.MidfieldersFILE_PATH))
-					System.out.println("Player record has been added");
-				else
-				{
-					System.out.println("Player name does not exist!");
-					System.out.println("Try again");
-					--i;
-				}
-			}
+			String sql2 = "INSERT INTO squads"
+						+"(UID , PID ,Player_name,Team,Total_points,Cost,Position)"
+						+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
 			
-			System.out.println("Forwards");
-			for(int i = 0; i<3 ;i++)
-			{
-				System.out.println("Enter name for farward player #"+(i+1));
-				Name = sc.nextLine();
-				if(DataManipulation.search(Name, DataManipulation.FarwardsFILE_PATH))
-					System.out.println("Player record has been added");
-				else
-				{
-					System.out.println("Player name does not exist!");
-					System.out.println("Try again");
-					--i;
-				}
-			}
-			
-			System.out.println("Goalkeepers");
-			for(int i = 0; i<2 ;i++)
-			{
-				System.out.println("Enter name for goalkeeper #"+(i+1));
-				Name = sc.nextLine();
-				if(DataManipulation.search(Name, DataManipulation.GoalkeepersFILE_PATH))
-					System.out.println("Player record has been added");
-				else
-				{
-					System.out.println("Player name does not exist!");
-					System.out.println("Try again");
-					--i;
-				}
-			}
-			sc.close();
-			System.out.println("Squad has been created!");
+			stmt.executeUpdate(sql2);
+			System.out.println("Player has been added");
 		}
 		else
-			System.out.println("Entered ID already exist..");
+		{
+			System.out.println("Player name does not exist!");
+			System.out.println("Try again");
+		}
+		
+		scan.close();
+		sc.close();
 	}
 	
-	public boolean logIn() throws FileNotFoundException
+	public void Add_Defender_To_Squad() throws SQLException
+	{
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		int ID = 0 ; String Name = "";
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter your ID : ");
+		ID = sc.nextInt();
+		
+		System.out.println("Enter name for defender player");
+		Name = scan.nextLine();
+		
+		if(DataManipulation.search_defenders(Name))
+		{
+			
+			String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM defenders WHERE Player_name='"+Name+"'";
+			
+			ResultSet res = stmt.executeQuery(sql);
+			
+			String name="" , team="" , position="";
+			int points = 0;
+			double cost = 0.0;
+			
+			while(res.next())
+			{				
+				name = res.getString("Player_name");
+				team = res.getString("Team");
+				points = res.getInt("Total_points");
+				cost = res.getDouble("Cost");
+				position = res.getString("Position");
+			}
+			
+			String sql2 = "INSERT INTO squads"
+						+"(UID , PID ,Player_name,Team,Total_points,Cost,Position)"
+						+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+			
+			stmt.executeUpdate(sql2);
+			System.out.println("Player has been added");
+		}
+		else
+		{
+			System.out.println("Player name does not exist!");
+			System.out.println("Try again");
+		}
+		
+		scan.close();
+		sc.close();
+	}
+	
+	public void Add_Farward_To_Squad() throws SQLException
+	{
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		int ID = 0 ; String Name = "";
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter your ID : ");
+		ID = sc.nextInt();
+		
+		System.out.println("Enter name for farward player");
+		Name = scan.nextLine();
+		
+		if(DataManipulation.search_farwards(Name))
+		{
+			
+			String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM farwards WHERE Player_name='"+Name+"'";
+			
+			ResultSet res = stmt.executeQuery(sql);
+			
+			String name="" , team="" , position="";
+			int points = 0;
+			double cost = 0.0;
+			
+			while(res.next())
+			{				
+				name = res.getString("Player_name");
+				team = res.getString("Team");
+				points = res.getInt("Total_points");
+				cost = res.getDouble("Cost");
+				position = res.getString("Position");
+			}
+			
+			String sql2 = "INSERT INTO squads"
+						+"(UID , PID ,Player_name,Team,Total_points,Cost,Position)"
+						+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+			
+			stmt.executeUpdate(sql2);
+			System.out.println("Player has been added");
+		}
+		else
+		{
+			System.out.println("Player name does not exist!");
+			System.out.println("Try again");
+		}
+		
+		scan.close();
+		sc.close();
+	}
+	
+	public void Add_Goalkeeper_To_Squad() throws SQLException
+	{
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		int ID = 0 ; String Name = "";
+		
+		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter your ID : ");
+		ID = sc.nextInt();
+		
+		System.out.println("Enter name for goalkeeper player");
+		Name = scan.nextLine();
+		
+		if(DataManipulation.search_goalkeepers(Name))
+		{
+			
+			String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM goalkeepers WHERE Player_name='"+Name+"'";
+			
+			ResultSet res = stmt.executeQuery(sql);
+			
+			String name="" , team="" , position="";
+			int points = 0;
+			double cost = 0.0;
+			
+			while(res.next())
+			{				
+				name = res.getString("Player_name");
+				team = res.getString("Team");
+				points = res.getInt("Total_points");
+				cost = res.getDouble("Cost");
+				position = res.getString("Position");
+			}
+			
+			String sql2 = "INSERT INTO squads"
+						+"(UID , PID ,Player_name,Team,Total_points,Cost,Position)"
+						+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+			
+			stmt.executeUpdate(sql2);
+			System.out.println("Player has been added");
+		}
+		else
+		{
+			System.out.println("Player name does not exist!");
+			System.out.println("Try again");
+		}
+		
+		scan.close();
+		sc.close();
+	}
+	
+	public void Remove_Player_From_Squad() throws SQLException
+	{
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		Scanner scan = new Scanner(System.in);
+		String pid="";
+		System.out.println("Enter PID : ");
+		pid=scan.nextLine();
+		
+		String sql = "DELETE FROM squads WHERE PID='"+pid+"';";
+		stmt.execute(sql);
+		scan.close();
+	}
+	
+	public String PID(int id , String uname)
+	{
+		String pid = uname.concat(Integer.toString(id));
+		return pid;
+	}
+	
+	public void AddSquad() throws IOException, SQLException
+	{
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		
+		int ID=0; String Name="";
+		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter your ID : ");
+		ID = sc.nextInt();
+		
+		System.out.println("\nMidfielders\n");
+		
+		for(int i = 0; i<5 ;i++)
+		{	
+			System.out.println("Enter name for midfielder player #"+(i+1));
+			Name = scan.nextLine();
+			
+			if(DataManipulation.search_midfielders(Name))
+			{
+				
+				String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM midfielders WHERE Player_name='"+Name+"'";
+				
+				ResultSet res = stmt.executeQuery(sql);
+				
+				String name="" , team="" , position="";
+				int points = 0;
+				double cost = 0.0;
+				
+				while(res.next())
+				{				
+					name = res.getString("Player_name");
+					team = res.getString("Team");
+					points = res.getInt("Total_points");
+					cost = res.getDouble("Cost");
+					position = res.getString("Position");
+				}
+				
+				String sql2 = "INSERT INTO squads"
+							+"(UID , PID ,Player_name,Team,Total_points,Cost,Position)"
+							+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+				
+				stmt.executeUpdate(sql2);
+			}
+			else
+			{
+				System.out.println("Player name does not exist!");
+				System.out.println("Try again");
+				--i;
+			}
+		}
+		
+		System.out.println("\nForwards\n");
+		
+		for(int i = 0; i<3 ;i++)
+		{	
+			System.out.println("Enter name for farward player #"+(i+1));
+			Name = scan.nextLine();
+			
+			if(DataManipulation.search_farwards(Name))
+			{
+				String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM farwards WHERE Player_name='"+Name+"'";
+				
+				ResultSet res = stmt.executeQuery(sql);
+				
+				String name="" , team="" , position="";
+				int points = 0;
+				double cost = 0.0;
+				
+				while(res.next())
+				{				
+					name = res.getString("Player_name");
+					team = res.getString("Team");
+					points = res.getInt("Total_points");
+					cost = res.getDouble("Cost");
+					position = res.getString("Position");
+				}
+				
+				String sql2 = "INSERT INTO squads"
+							+"(UID, PID ,Player_name,Team,Total_points,Cost,Position)"
+							+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+				
+				stmt.executeUpdate(sql2);
+			}
+			else
+			{
+				System.out.println("Player name does not exist!");
+				System.out.println("Try again");
+				--i;
+			}
+		}
+		
+		System.out.println("\nDefenders\n");
+		
+		for(int i = 0; i<5 ;i++)
+		{	
+			System.out.println("Enter name for defenders player #"+(i+1));
+			Name = scan.nextLine();
+			
+			if(DataManipulation.search_defenders(Name))
+			{
+				String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM defenders WHERE Player_name='"+Name+"'";
+				
+				ResultSet res = stmt.executeQuery(sql);
+				
+				String name="" , team="" , position="";
+				int points = 0;
+				double cost = 0.0;
+				
+				while(res.next())
+				{				
+					name = res.getString("Player_name");
+					team = res.getString("Team");
+					points = res.getInt("Total_points");
+					cost = res.getDouble("Cost");
+					position = res.getString("Position");
+				}
+				
+				String sql2 = "INSERT INTO squads"
+							+"(UID, PID ,Player_name,Team,Total_points,Cost,Position)"
+							+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+				
+				stmt.executeUpdate(sql2);
+			}
+			else
+			{
+				System.out.println("Player name does not exist!");
+				System.out.println("Try again");
+				--i;
+			}
+		}
+		
+		System.out.println("\nGoalkeepers\n");
+		
+		for(int i = 0; i<2 ;i++)
+		{	
+			System.out.println("Enter name for goalkeeper player #"+(i+1));
+			Name = scan.nextLine();
+			
+			if(DataManipulation.search_goalkeepers(Name))
+			{
+				String sql = "SELECT Player_name , Team , Total_points , Cost , Position FROM goalkeepers WHERE Player_name='"+Name+"'";
+				
+				ResultSet res = stmt.executeQuery(sql);
+				
+				String name="" , team="" , position="";
+				int points = 0;
+				double cost = 0.0;
+				
+				while(res.next())
+				{				
+					name = res.getString("Player_name");
+					team = res.getString("Team");
+					points = res.getInt("Total_points");
+					cost = res.getDouble("Cost");
+					position = res.getString("Position");
+				}
+				
+				String sql2 = "INSERT INTO squads"
+							+"(UID, PID ,Player_name,Team,Total_points,Cost,Position)"
+							+"Values("+ID+", '"+PID(ID , Name)+"' ,'"+name+"','"+team+"','"+points+"','"+cost+"','"+position+"');"; 
+				
+				stmt.executeUpdate(sql2);
+			}
+			else
+			{
+				System.out.println("Player name does not exist!");
+				System.out.println("Try again");
+				--i;
+			}
+		}
+		
+		sc.close();
+		scan.close();
+		System.out.println("Squad has been created!");
+	}
+	
+	public boolean logIn() throws SQLException, FileNotFoundException
 	{
 		return registeration.Login();
 	}
 	
-	public boolean signUp() throws IOException
+	public boolean signUp() throws IOException, SQLException
 	{
 		return registeration.SignUP();
-	}
-	
-	public void printSquadInfo()
-	{
-		for(int i=0; i<newSquad.getNumOfPlayersInSquad() ;i++)
-			System.out.println(newSquad.squad.get(i).getName()
-			+"\t"+newSquad.squad.get(i).getAge()
-			+"\t"+newSquad.squad.get(i).getNationality()
-			+"\t"+newSquad.squad.get(i).getTeam()
-			+"\t"+newSquad.squad.get(i).getPosition()
-			+"\t"+newSquad.squad.get(i).getPoints()
-			+"\t"+newSquad.squad.get(i).getCost()
-			+"\t"+newSquad.squad.get(i).getPoints());
-	}
-	
-	private void setID()
-	{
-		ID = "UID"+Integer.toString(LineNumberCounter.LineCounter()+1);
 	}
 	
 	public String getID()
@@ -206,12 +502,10 @@ public class User extends person {
 	public String getFavTeam() {
 		return favTeam;
 	}
-
 	
 	public double getBudget() {
 		return budget;
 	}
-
 	
 	public void setBudget(double budget) {
 		this.budget = budget;

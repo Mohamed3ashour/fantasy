@@ -1,59 +1,104 @@
 package fpackage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class App {
 	
-	public static void main(String[] args) throws IOException {
-		
-		Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) throws SQLException, IOException {
 		
 		User user = new User();
 		
-		System.out.println("1.SingUp\n2.login\n3.Add squad\n4.Get you current budget\n5.Search for an user"
-						+ "\n6.Display Midfielders\n7.Display Users Data\n8.Display sqaud players\n9.Exit");
+		Scanner scan = new Scanner(System.in);
 		
-		char option = scan.next().charAt(0);
+		System.out.println("(1).SignUp");
+		System.out.println("(2).Login");
+		System.out.println("(3).Add squad");
+		System.out.println("(4).Add player");
+		System.out.println("(5).Remove player");
+		System.out.println("(6).Update & print user's total points");
+		System.out.println("(7).Update player total points");
+		System.out.println("(8).Display user's squad by using user ID");
+		System.out.println("(9).Display midfielders data");
+		System.out.println("(10).Display all users data");
+		System.out.println("(11).Display user data using user ID");
+		System.out.println("(12).Exit");
 		
-		switch(option)
+		int op = scan.nextInt();
+		
+		switch(op)
 		{
-		case '1':
+		case 1:
 			user.signUp();
 			break;
-		case '2':
+		case 2:
 			user.logIn();
 			break;
-		case '3':
+		case 3:
 			user.AddSquad();
 			break;
-		case '4':
-			System.out.println(user.NewBudget());
+		case 4:
+			Scanner s = new Scanner(System.in);
+			System.out.print("Enter player position : ");
+			String op2 = s.nextLine();
+			switch(op2)
+			{
+			case "fw":
+				user.Add_Farward_To_Squad();
+				break;
+			case "gk":
+				user.Add_Goalkeeper_To_Squad();
+				break;
+			case "df":
+				user.Add_Defender_To_Squad();
+				break;
+			case "mf":
+				user.Add_Midfielder_To_Squad();
+				break;
+			default:
+				System.out.println("Invalid player position");
+			}
 			break;
-		case '5':
-			Scanner sc = new Scanner(System.in);
-			System.out.print("Enter user ID : ");
-			String ID = sc.nextLine();
-			DataManipulation.search(ID, DataManipulation.UsersFILE_PATH);
+		case 5:
+			user.Remove_Player_From_Squad();
 			break;
-		case '6':
-			DataManipulation.print(DataManipulation.MidfieldersFILE_PATH);
+		case 6:
+			System.out.println("Total points : "+Admin_user.Update_user_total_points());
 			break;
-		case '7':
-			System.out.println("\t\t\t\t\tUsers Data");
-			System.out.println("======================================================="
-			+ "=====================================");
-			DataManipulation.print(DataManipulation.UsersFILE_PATH);
+		case 7:
+			Scanner s2 = new Scanner(System.in);
+			String name="" , pos="";
+			int points=0;
+			System.out.print("Enter player pos : ");
+			pos = s2.nextLine();
+			System.out.print("Enter player name : ");
+			name = s2.nextLine();
+			System.out.print("Enter player bonus points : ");
+			points = s2.nextInt();
+			Admin_user.Update_player_total_points(points, name, pos);
 			break;
-		case '8':
-			user.printSquadPlayers();
+		case 8:
+			Admin_user.Display_squad();
 			break;
-		case '9':
-			System.out.println("Exit...");
+		case 9:
+			DataManipulation.printmidfielders();
 			break;
-		default :
-			System.out.println("Invalid option..");
+		case 10:
+			DataManipulation.printUsers();
+			break;
+		case 11:
+			DataManipulation.Display_User_Data();
+			break;
+		case 12:
+			System.out.println("Exit...!");
+			break;
+		default:
+			System.out.println("Invalid option");
 		}
+		
+		
 		scan.close();
 	}
 }
