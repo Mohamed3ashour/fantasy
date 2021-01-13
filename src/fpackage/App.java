@@ -1,11 +1,13 @@
 package fpackage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 public class App {
-	
 	
 	public static void main(String[] args) throws SQLException, IOException {
 		
@@ -37,7 +39,25 @@ public class App {
 			user.logIn();
 			break;
 		case 3:
-			user.AddSquad();
+			int uid = 0;
+			Scanner sc = new Scanner(System.in);
+			System.out.print("Enter your ID : ");
+			uid = sc.nextInt();
+			
+			int isAdm = 0;
+			
+			Connection con = ConnectionManager.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet res;
+			
+			String sql = "SELECT IsAdmin FROM users WHERE UID="+uid+"";
+			res = stmt.executeQuery(sql);
+			while(res.next())
+				isAdm = res.getInt("IsAdmin");
+			if(isAdm==0)
+				user.AddSquad(uid);
+			else
+				System.out.println("You are an admin");
 			break;
 		case 4:
 			Scanner s = new Scanner(System.in);
@@ -98,7 +118,7 @@ public class App {
 			System.out.println("Invalid option");
 		}
 		
-		
 		scan.close();
+	
 	}
 }

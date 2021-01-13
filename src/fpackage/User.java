@@ -23,6 +23,45 @@ public class User extends person {
 		setBudget(100.0);
 	}
 	
+	public void UpdatePlayerPoints() throws SQLException
+	{
+		int uid = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your ID : ");
+		uid = sc.nextInt();
+		
+		int isAdm = 0;
+		
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		ResultSet res;
+		
+		String sql = "SELECT IsAdmin FROM users WHERE UID="+uid+"";
+		res = stmt.executeQuery(sql);
+		while(res.next())
+			isAdm = res.getInt("IsAdmin");
+		
+		if(isAdm==1)
+		{
+			Scanner scan = new Scanner(System.in);
+			int points=0;
+			System.out.print("Bonus points : ");
+			points = sc.nextInt();
+			String pname = "";
+			System.out.print("Player name : ");
+			pname = scan.nextLine();
+			String pos = "";
+			System.out.print("Player position : ");
+			pos = scan.nextLine();
+			Admin_user.Update_player_total_points(points, pname, pos);
+			scan.close();
+		}
+		else
+			System.out.println("User is not an admin user");
+		
+		sc.close();
+	}
+	
 	public User(String name, int age, String email, String passwd , String favTeam) {
 		super(name , age);
 		this.email = email;
@@ -286,17 +325,14 @@ public class User extends person {
 		return pid;
 	}
 	
-	public void AddSquad() throws IOException, SQLException
+	public void AddSquad(int ID) throws IOException, SQLException
 	{
 		Connection con = ConnectionManager.getConnection();
 		Statement stmt = con.createStatement();
 		
-		int ID=0; String Name="";
+		String Name="";
 		Scanner sc = new Scanner(System.in);
 		Scanner scan = new Scanner(System.in);
-		
-		System.out.println("Enter your ID : ");
-		ID = sc.nextInt();
 		
 		System.out.println("\nMidfielders\n");
 		

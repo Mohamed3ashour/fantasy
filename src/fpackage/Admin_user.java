@@ -35,6 +35,58 @@ public class Admin_user {
 		return TP;
 	}
 	
+	public static void Make_admin() throws SQLException
+	{
+		Scanner scan = new Scanner(System.in);
+		int uid = 0;
+		System.out.print("Enter User ID : ");
+		uid = scan.nextInt();
+		String uname = "";
+		
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		ResultSet res;
+		
+		String sql = "UPDATE users SET IsAdmin=1 WHERE UID='"+uid+"';";
+		stmt.executeUpdate(sql);
+		
+		String sql2 = "SELECT User_name FROM users WHERE UID='"+uid+"'";
+		
+		res = stmt.executeQuery(sql2);
+		while(res.next())
+			uname = res.getString("User_name");	
+		
+		System.out.println(uname+" is admin");
+		
+		scan.close();
+	}
+	
+	public static void Remove_admin() throws SQLException
+	{
+		Scanner scan = new Scanner(System.in);
+		int uid = 0;
+		System.out.print("Enter User ID : ");
+		uid = scan.nextInt();
+		String uname = "";
+		
+		Connection con = ConnectionManager.getConnection();
+		Statement stmt = con.createStatement();
+		ResultSet res;
+		
+		String sql = "UPDATE users SET IsAdmin=0 WHERE UID='"+uid+"';";
+		stmt.executeUpdate(sql);
+		
+		String sql2 = "SELECT User_name FROM users WHERE UID='"+uid+"'";
+		
+		res = stmt.executeQuery(sql2);
+		while(res.next())
+			uname = res.getString("User_name");	
+		
+		System.out.println(uname+" is not admin any more");
+		
+		scan.close();
+	}
+	
 	public static void Display_squad() throws SQLException
 	{
 		Connection con = ConnectionManager.getConnection();
